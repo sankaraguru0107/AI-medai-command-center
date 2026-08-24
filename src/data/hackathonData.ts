@@ -1,0 +1,301 @@
+export interface IndianStateData {
+  id: string;
+  name: string;
+  code: string;
+  districtsCount: number;
+  facilitiesCount: number;
+  hospitals: number;
+  phcs: number;
+  availableBeds: number;
+  totalBeds: number;
+  bedOccupancyPercent: number;
+  medicineAvailabilityPercent: number;
+  staffAvailabilityPercent: number;
+  resilienceScore: number;
+  status: 'Stable' | 'Warning' | 'Critical';
+  capital: string;
+  coordinates: { x: number; y: number }; // percentage position for interactive map
+}
+
+export interface IndianFacilityData {
+  id: string;
+  code: string;
+  name: string;
+  type: 'Government Medical College' | 'District Hospital' | 'Community Health Centre' | 'Primary Health Centre';
+  state: string;
+  district: string;
+  status: 'Stable' | 'Warning' | 'Critical';
+  availableBeds: number;
+  totalBeds: number;
+  icuBedsAvailable: number;
+  icuBedsTotal: number;
+  medicineRisk: 'Low' | 'Moderate' | 'High' | 'Critical';
+  staffAvailabilityPercent: number;
+  resilienceScore: number;
+  criticalShortages: string[];
+}
+
+export const INDIAN_STATES: IndianStateData[] = [
+  {
+    id: 'st-tn',
+    name: 'Tamil Nadu',
+    code: 'TN',
+    districtsCount: 38,
+    facilitiesCount: 420,
+    hospitals: 78,
+    phcs: 342,
+    availableBeds: 14250,
+    totalBeds: 18500,
+    bedOccupancyPercent: 77,
+    medicineAvailabilityPercent: 82,
+    staffAvailabilityPercent: 93,
+    resilienceScore: 88,
+    status: 'Warning',
+    capital: 'Chennai',
+    coordinates: { x: 45, y: 78 },
+  },
+  {
+    id: 'st-ka',
+    name: 'Karnataka',
+    code: 'KA',
+    districtsCount: 31,
+    facilitiesCount: 380,
+    hospitals: 64,
+    phcs: 316,
+    availableBeds: 12800,
+    totalBeds: 16200,
+    bedOccupancyPercent: 79,
+    medicineAvailabilityPercent: 86,
+    staffAvailabilityPercent: 90,
+    resilienceScore: 89,
+    status: 'Stable',
+    capital: 'Bengaluru',
+    coordinates: { x: 38, y: 68 },
+  },
+  {
+    id: 'st-kl',
+    name: 'Kerala',
+    code: 'KL',
+    districtsCount: 14,
+    facilitiesCount: 290,
+    hospitals: 42,
+    phcs: 248,
+    availableBeds: 9400,
+    totalBeds: 11500,
+    bedOccupancyPercent: 81,
+    medicineAvailabilityPercent: 89,
+    staffAvailabilityPercent: 95,
+    resilienceScore: 92,
+    status: 'Stable',
+    capital: 'Thiruvananthapuram',
+    coordinates: { x: 35, y: 84 },
+  },
+  {
+    id: 'st-mh',
+    name: 'Maharashtra',
+    code: 'MH',
+    districtsCount: 36,
+    facilitiesCount: 510,
+    hospitals: 92,
+    phcs: 418,
+    availableBeds: 21500,
+    totalBeds: 29000,
+    bedOccupancyPercent: 74,
+    medicineAvailabilityPercent: 81,
+    staffAvailabilityPercent: 88,
+    resilienceScore: 85,
+    status: 'Warning',
+    capital: 'Mumbai',
+    coordinates: { x: 32, y: 52 },
+  },
+  {
+    id: 'st-ts',
+    name: 'Telangana',
+    code: 'TS',
+    districtsCount: 33,
+    facilitiesCount: 260,
+    hospitals: 48,
+    phcs: 212,
+    availableBeds: 8900,
+    totalBeds: 11800,
+    bedOccupancyPercent: 75,
+    medicineAvailabilityPercent: 85,
+    staffAvailabilityPercent: 91,
+    resilienceScore: 87,
+    status: 'Stable',
+    capital: 'Hyderabad',
+    coordinates: { x: 42, y: 58 },
+  },
+  {
+    id: 'st-ap',
+    name: 'Andhra Pradesh',
+    code: 'AP',
+    districtsCount: 26,
+    facilitiesCount: 310,
+    hospitals: 56,
+    phcs: 254,
+    availableBeds: 10200,
+    totalBeds: 14000,
+    bedOccupancyPercent: 73,
+    medicineAvailabilityPercent: 83,
+    staffAvailabilityPercent: 89,
+    resilienceScore: 86,
+    status: 'Stable',
+    capital: 'Amaravati',
+    coordinates: { x: 48, y: 64 },
+  },
+  {
+    id: 'st-gj',
+    name: 'Gujarat',
+    code: 'GJ',
+    districtsCount: 33,
+    facilitiesCount: 340,
+    hospitals: 58,
+    phcs: 282,
+    availableBeds: 13100,
+    totalBeds: 17500,
+    bedOccupancyPercent: 75,
+    medicineAvailabilityPercent: 87,
+    staffAvailabilityPercent: 92,
+    resilienceScore: 90,
+    status: 'Stable',
+    capital: 'Gandhinagar',
+    coordinates: { x: 22, y: 44 },
+  },
+  {
+    id: 'st-dl',
+    name: 'Delhi NCR',
+    code: 'DL',
+    districtsCount: 11,
+    facilitiesCount: 180,
+    hospitals: 45,
+    phcs: 135,
+    availableBeds: 7200,
+    totalBeds: 10500,
+    bedOccupancyPercent: 89,
+    medicineAvailabilityPercent: 78,
+    staffAvailabilityPercent: 87,
+    resilienceScore: 79,
+    status: 'Critical',
+    capital: 'New Delhi',
+    coordinates: { x: 36, y: 32 },
+  },
+  {
+    id: 'st-wb',
+    name: 'West Bengal',
+    code: 'WB',
+    districtsCount: 23,
+    facilitiesCount: 390,
+    hospitals: 68,
+    phcs: 322,
+    availableBeds: 15400,
+    totalBeds: 21000,
+    bedOccupancyPercent: 76,
+    medicineAvailabilityPercent: 80,
+    staffAvailabilityPercent: 88,
+    resilienceScore: 83,
+    status: 'Warning',
+    capital: 'Kolkata',
+    coordinates: { x: 68, y: 46 },
+  },
+];
+
+export const DEMO_FACILITIES: IndianFacilityData[] = [
+  {
+    id: 'fac-1',
+    code: 'PHC-024',
+    name: 'Primary Health Centre Valparai',
+    type: 'Primary Health Centre',
+    state: 'Tamil Nadu',
+    district: 'Coimbatore',
+    status: 'Critical',
+    availableBeds: 3,
+    totalBeds: 45,
+    icuBedsAvailable: 1,
+    icuBedsTotal: 8,
+    medicineRisk: 'Critical',
+    staffAvailabilityPercent: 82,
+    resilienceScore: 64,
+    criticalShortages: ['Ceftriaxone 1g Injectable', 'Paracetamol IV 100ml', 'O2 Cylinders'],
+  },
+  {
+    id: 'fac-2',
+    code: 'DH-CBE-02',
+    name: 'District Hospital Coimbatore B',
+    type: 'District Hospital',
+    state: 'Tamil Nadu',
+    district: 'Coimbatore',
+    status: 'Stable',
+    availableBeds: 120,
+    totalBeds: 400,
+    icuBedsAvailable: 18,
+    icuBedsTotal: 60,
+    medicineRisk: 'Low',
+    staffAvailabilityPercent: 96,
+    resilienceScore: 94,
+    criticalShortages: [],
+  },
+  {
+    id: 'fac-3',
+    code: 'GMC-MDU-01',
+    name: 'Government Medical College Madurai',
+    type: 'Government Medical College',
+    state: 'Tamil Nadu',
+    district: 'Madurai',
+    status: 'Warning',
+    availableBeds: 68,
+    totalBeds: 750,
+    icuBedsAvailable: 5,
+    icuBedsTotal: 90,
+    medicineRisk: 'Moderate',
+    staffAvailabilityPercent: 91,
+    resilienceScore: 82,
+    criticalShortages: ['Ventilator Tubing Kits'],
+  },
+  {
+    id: 'fac-4',
+    code: 'CHC-BLR-12',
+    name: 'Community Health Centre Anekal',
+    type: 'Community Health Centre',
+    state: 'Karnataka',
+    district: 'Bengaluru Urban',
+    status: 'Stable',
+    availableBeds: 24,
+    totalBeds: 80,
+    icuBedsAvailable: 4,
+    icuBedsTotal: 12,
+    medicineRisk: 'Low',
+    staffAvailabilityPercent: 94,
+    resilienceScore: 91,
+    criticalShortages: [],
+  },
+  {
+    id: 'fac-5',
+    code: 'PHC-NLG-05',
+    name: 'Primary Health Centre Gudalur',
+    type: 'Primary Health Centre',
+    state: 'Tamil Nadu',
+    district: 'Nilgiris',
+    status: 'Warning',
+    availableBeds: 8,
+    totalBeds: 35,
+    icuBedsAvailable: 0,
+    icuBedsTotal: 4,
+    medicineRisk: 'High',
+    staffAvailabilityPercent: 74,
+    resilienceScore: 72,
+    criticalShortages: ['Antivenom Vials', 'Insulin Regular'],
+  },
+];
+
+export const DEMAND_FORECAST_TREND = [
+  { day: 'Mon', historicalBeds: 620, predictedBeds: 625, medicineUnits: 14200 },
+  { day: 'Tue', historicalBeds: 640, predictedBeds: 648, medicineUnits: 14800 },
+  { day: 'Wed', historicalBeds: 670, predictedBeds: 682, medicineUnits: 15600 },
+  { day: 'Thu', historicalBeds: 710, predictedBeds: 730, medicineUnits: 16900 },
+  { day: 'Fri (Today)', historicalBeds: 780, predictedBeds: 810, medicineUnits: 18400 },
+  { day: 'Sat (+1d)', historicalBeds: null, predictedBeds: 890, medicineUnits: 20500 },
+  { day: 'Sun (+2d)', historicalBeds: null, predictedBeds: 940, medicineUnits: 22100 },
+  { day: 'Mon (+3d)', historicalBeds: null, predictedBeds: 980, medicineUnits: 23800 },
+  { day: 'Tue (+4d)', historicalBeds: null, predictedBeds: 1040, medicineUnits: 25900 },
+];

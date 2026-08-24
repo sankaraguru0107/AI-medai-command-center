@@ -1,0 +1,3 @@
+- [x] Upgrade `ICUSedationModule.tsx` with high-fidelity ICU telemetry vitals, ventilators, sedation, and AI recommendations
+- [x] Verify TypeScript types with `npx tsc --noEmit`
+- [x] Verify production build with `npm run build`
